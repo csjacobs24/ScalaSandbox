@@ -16,4 +16,5 @@ object Foo extends App {
   printAnInt(new GimmeAOne) // prints 1
   printAnInt(new GimmeATwo) //prints 2
   printAnInt(new GimmeAThree) // Compile-time error: no gimmeAnInt method on GimmeAThree
+  // Trying out a pull request
 }
