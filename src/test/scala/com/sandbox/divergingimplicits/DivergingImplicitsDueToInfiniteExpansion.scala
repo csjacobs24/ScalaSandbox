@@ -2,7 +2,7 @@ package com.sandbox.divergingimplicits
 
 import org.scalatest.FlatSpec
 
-/** Uncommenting the method call in this class will cause the failure described in the comments */
+/** Uncommenting the method call in this class will cause the failure in the test description */
 class DivergingImplicitsDueToInfiniteExpansion extends FlatSpec {
   implicit def fooOne[T](implicit a: Set[T]): T = a.head
 

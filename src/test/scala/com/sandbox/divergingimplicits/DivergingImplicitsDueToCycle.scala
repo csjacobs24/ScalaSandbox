@@ -2,7 +2,7 @@ package com.sandbox.divergingimplicits
 
 import org.scalatest.FlatSpec
 
-/** Uncommenting any of the method calls in this class will cause the failure described in the comments */
+/** Uncommenting any of the method calls in this class will cause the failure in the test description */
 class DivergingImplicitsDueToCycle extends FlatSpec {
 
   implicit def fooOne(implicit x: Int): String = x.toString
