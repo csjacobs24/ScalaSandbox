@@ -52,10 +52,6 @@ class DayOne extends FlatSpec with Matchers {
     partTwoPuzzle("12131415") shouldBe 4
   }
 
-  private def getDigitsFromString(numberString: String): Array[Int] = {
-    numberString.toCharArray.map(_.toString.toInt)
-  }
-
   /** For a bunch of digits, compute the sum of all digits whose following digit is equal to it. The list of digits
     * wraps, so 1121 gives 2: one for the first one, because it's followed by another 1, and one for the last one,
     * because its "following" digit (the first digit) is also a 1.
@@ -82,9 +78,8 @@ class DayOne extends FlatSpec with Matchers {
     * their sum is 12.
     */
   def generalPuzzle(numberString: String, howManyToSkip: Int): Int = {
-    val inputDigits = getDigitsFromString(numberString)
     // To simulate the wrapping, append the first howManyToSkip to the end of the array
-    val digits = inputDigits ++ inputDigits.take(howManyToSkip)
-    digits.sliding(howManyToSkip + 1).filter(digitPair => digitPair.head == digitPair.last).map(_(0)).sum
+    val digits = numberString ++ numberString.take(howManyToSkip)
+    digits.sliding(howManyToSkip + 1).filter(digitPair => digitPair.head == digitPair.last).map(_(0).toString.toInt).sum
   }
 }
