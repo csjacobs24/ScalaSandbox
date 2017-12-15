@@ -30,6 +30,10 @@ class DayOne extends FlatSpec with Matchers {
     partOnePuzzle("111111") shouldBe 6
   }
 
+  it should "map 1 to 1" in {
+    partOnePuzzle("1") shouldBe 1
+  }
+
   behavior of "Part Two Puzzle"
 
   it should "map 1212 to 6" in {
@@ -52,6 +56,9 @@ class DayOne extends FlatSpec with Matchers {
     partTwoPuzzle("12131415") shouldBe 4
   }
 
+  it should "map 11 to 2" in {
+
+  }
   /** For a bunch of digits, compute the sum of all digits whose following digit is equal to it. The list of digits
     * wraps, so 1121 gives 2: one for the first one, because it's followed by another 1, and one for the last one,
     * because its "following" digit (the first digit) is also a 1.
@@ -61,9 +68,9 @@ class DayOne extends FlatSpec with Matchers {
   }
 
   /** Same as part one, except now rather than checking whether each digit matches the one after it, we check whether
-    * each digit matches the one half the number of digits down the line from it. 1212 gives 6 because there are 4
-    * digits, and the first one matches the digit 2 down from it, the first two as well, the second 1, and the second 2
-    * as well.
+    * each digit matches the one half the number of digits down the line from it (the puzzle admits that it requires the
+    * number of digits to be even). 1212 gives 6 because there are 4 digits, and the first one matches the digit 2 down
+    * from it, the first two as well, the second 1, and the second 2 as well.
     */
   def partTwoPuzzle(numberString: String): Int = {
     val length = numberString.length
@@ -72,7 +79,7 @@ class DayOne extends FlatSpec with Matchers {
   }
 
   /** For a bunch of digits and an integer, compute the sum of all digits for which the digit that many down the line
-    * is equal to it. The list of digits wraps, so howManyToSkip == 1, 1121 gives 2: one for the first one, because
+    * is equal to it. The list of digits wraps, so if howManyToSkip == 1, 1121 gives 2: one for the first one, because
     * it's followed by another 1, and one for the last one, because its "following" digit (the first digit) is also a 1.
     * For howManyToSkip == 3, 123123 would give 12 because, with wrapping, every digit equals the one 3 down from it and
     * their sum is 12.
